@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <app-side-bar-user></app-side-bar-user>
+
+  <div id="content">
+<div class="container-fruid clearfix register">
+  <div class="row ">
+    <div class="col-12 ">
+      <div class="container-body row">
+        <div class="col-md-3 register-left">
+          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+          <h3>Welcome</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, libero.</p>
+          <a routerLink="/user/house">Quay về</a><br/>
+        </div>
+
+        <div class="col-md-9 register-right">
+          <div class="border register-form">
+            <div class="col-12 ">
+              <h2>Tên ngôi nhà: {{listHouse.tenNha}} </h2>
+              <div class="row">
+
+                <div class="col-md-6 float-left">
+                  <div class="form-group">
+                    <p><i class="fa fa-dollar"></i> Giá tiền: {{listHouse.giaTienTheoDem}}$/Đêm</p>
+                  </div>
+                  <div class="form-group">
+                    <p><i class="fa fa-map-marker"></i> Địa chỉ: {{listHouse.diaChi}}</p>
+                  </div>
+
+
+                </div>
+
+                <div class="col-md-6 float-left">
+                  <div class="form-group">
+                    <p><i class="fa fa-question-circle"></i> Trạng thái: {{listHouse.trangThai}}</p>
+                  </div>
+                  <div class="form-group">
+                    <p><i class="fa fa-file"></i> Mô tả chung: {{listHouse.moTaChung}}</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 float-left">
+
+                  <div class="form-group">
+                    <p>*  Loại nhà:  <span class="number-kind">{{listHouse.categoryHouse.name}}</span></p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 float-left">
+                  <div class="form-group">
+                    <p>*  Loại phòng:  <span class="number-kind">{{listHouse.categoryRoom.name}}</span> </p>
+                  </div>
+                </div>
+              </div>
+
+                <div class=" clearfix col-lg-3 col-md-4 col-6 float-left"  *ngFor="let image of listHouse.picture">
+
+                    <div class="img-galary">
+                      <p class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail"[src]="image.tenAnh" alt="">
+                      </p>
+                    </div>
+
+                  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

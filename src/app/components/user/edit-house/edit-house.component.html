@@ -1,0 +1,93 @@
+<div class="wrapper">
+  <app-side-bar-user></app-side-bar-user>
+  <div id="content">
+    <div class="container-fruid register">
+      <div class="row">
+
+        <div class="col-md-3 register-left">
+          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+          <h3>Welcome</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, libero.</p>
+          <a routerLink="/user/house">Quay về</a><br/>
+        </div>
+
+        <div class="col-md-9 register-right">
+
+          <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <div *ngIf="isShow"
+                   class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+                   role="alert">
+                {{message}}
+              </div>
+
+              <h3 class="register-heading">Sửa sản phẩm</h3>
+
+              <form [formGroup]="formGroup">
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control" id="tenNha" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control" id="diaChi">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text" class="form-control" id="soLuongPhongNgu">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text" class="form-control" id="soLuongPhongTam">
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control" id="moTaChung">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text" class="form-control" id="giaTienTheoDem">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Trạng thái *" formControlName="trangThai" type="text" class="form-control" id="trangThai">
+                    </div>
+                    <div class="form-group">
+                      <div><input type="file" multiple="multiple" (change)="uploadFile($event)"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+
+                    <div class="form-group col-6 float-left" style="padding: 0px!important;">
+                      <label>House Categories</label>
+                      <select formControlName="categoryHouseId">
+                        <option *ngFor="let s of categoryHouseList" value="{{s.id}}">{{s.name}}</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-6 float-left" style="padding-right: 0px">
+                      <label>Room Categories</label>
+                      <select formControlName="categoryRoomId">
+                        <option *ngFor="let s of categoryRoomList" value="{{s.id}}">{{s.name}}</option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <button type="submit" (click)="edit()" class="btnRegister">
+                    Edit
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
