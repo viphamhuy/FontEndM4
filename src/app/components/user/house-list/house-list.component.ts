@@ -36,6 +36,8 @@ export class HouseListComponent implements OnInit {
     });
   }
 
+
+
   public delete(id: number) {
     this.componentsService.deleteHouse(id).subscribe(result => {
       this.isShow = true;

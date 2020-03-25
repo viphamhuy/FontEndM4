@@ -29,34 +29,45 @@
                 <div class="row register-form">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control" id="tenNha" aria-describedby="emailHelp">
+                      <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control"
+                             id="tenNha" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                      <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control" id="diaChi">
+                      <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control"
+                             id="diaChi">
                     </div>
                     <div class="form-group">
-                      <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text" class="form-control" id="soLuongPhongNgu">
+                      <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text"
+                             class="form-control" id="soLuongPhongNgu">
                     </div>
                     <div class="form-group">
-                      <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text" class="form-control" id="soLuongPhongTam">
+                      <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text"
+                             class="form-control" id="soLuongPhongTam">
                     </div>
 
 
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control" id="moTaChung">
+                      <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control"
+                             id="moTaChung">
                     </div>
                     <div class="form-group">
-                      <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text" class="form-control" id="giaTienTheoDem">
+                      <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text"
+                             class="form-control" id="giaTienTheoDem">
                     </div>
                     <div class="form-group">
-                      <input placeholder="Trạng thái *" formControlName="trangThai" type="text" class="form-control" id="trangThai">
+                      <input placeholder="Trạng thái *" formControlName="trangThai" type="text" class="form-control"
+                             id="trangThai">
                     </div>
                     <div class="form-group">
-                      <div><input type="file" multiple="multiple" (change)="uploadFile($event)"></div>
+                      <div class="upload-btn-wrapper">
+                        <input type="file" multiple="multiple" (change)="uploadFile($event)">
+                      </div>
                     </div>
                   </div>
+
+
 
                   <div class="col-md-12">
 
@@ -72,6 +83,19 @@
                       <select formControlName="categoryRoomId">
                         <option *ngFor="let s of categoryRoomList" value="{{s.id}}">{{s.name}}</option>
                       </select>
+
+                    </div>
+
+                  </div>
+                  <div class="col-12">
+                    <div class=" clearfix col-lg-3 col-md-4 col-6 float-left" *ngFor="let image of house.picture">
+
+                      <div class="img-galary">
+                        <p class="d-block mb-4 h-100">
+                          <span (click)="21" class="close">×</span>
+                          <img class="img-fluid img-thumbnail" [src]="image.tenAnh" alt="">
+                        </p>
+                      </div>
 
                     </div>
                   </div>

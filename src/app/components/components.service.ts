@@ -31,6 +31,7 @@ export class ComponentsService {
     return this.httpClient.get(this.urlApi + id);
   }
 
+
   public addHouse(
     tenNha: string, diaChi: string, soLuongPhongNgu: string,
     soLuongPhongTam: string, moTaChung: string, giaTienTheoDem: number,

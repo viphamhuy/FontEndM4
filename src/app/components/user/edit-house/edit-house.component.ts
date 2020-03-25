@@ -6,12 +6,14 @@ import * as firebase from 'firebase';
 import {Picture} from '../picture';
 import {AngularFireDatabase} from '@angular/fire/database';
 
+
 @Component({
   selector: 'app-edit-house',
   templateUrl: './edit-house.component.html',
   styleUrls: ['./edit-house.component.scss']
 })
 export class EditHouseComponent implements OnInit {
+
   picture: Picture[];
   arrayPicture: Picture[] = [];
   categoryHouseList: any[];
@@ -62,6 +64,9 @@ export class EditHouseComponent implements OnInit {
       });
     });
   }
+
+
+
 
   edit() {
     this.isLoading = true;
@@ -116,3 +121,8 @@ export class EditHouseComponent implements OnInit {
     console.log(this.arrayPicture);
   }
 }
+
+
+
+
+

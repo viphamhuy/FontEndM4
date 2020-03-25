@@ -51,7 +51,7 @@
 }
 .btnRegister{
   float: right;
-  margin-top: 10%;
+  margin-top: 10px;
   border: none;
   border-radius: 1.5rem;
   padding: 2%;
@@ -105,3 +105,33 @@ select{
   width: 50%;
   margin: auto;
 }
+.img-thumbnail {
+  width: 300px;
+  height: 200px;
+  padding: 0px;
+  border-radius: 14px;
+
+}
+.img-thumbnail:hover {
+  box-shadow: 9px 9px 9px rgb(1, 196, 254);
+  transition: 0.5s;
+}
+span.close {
+  position: absolute;
+  top: 10px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  transition: 0.3s;
+  font-weight: bold;
+  opacity: 1;
+  transition: 0.5s;
+  cursor: pointer;
+}
+span.close:hover{
+  transform: scale(1.5);
+  opacity: 1;
+  color: red;
+
+}
+
