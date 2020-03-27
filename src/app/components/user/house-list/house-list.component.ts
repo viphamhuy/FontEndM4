@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ComponentsService} from '../../components.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-house-list',
@@ -14,13 +15,17 @@ export class HouseListComponent implements OnInit {
   isSuccess = true;
   categoryHouseList: any[];
   categoryRoomList: any[];
-
-  constructor(private componentsService: ComponentsService) {
+  id: string;
+  constructor(private componentsService: ComponentsService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.componentsService.listAllHouse().subscribe(result => {
-      this.houseList = result;
+    this.route.paramMap.subscribe( params => {
+      const idChuNha = params.get('id');
+      this.componentsService.findByIdChuNha(idChuNha).subscribe( result2 => {
+        this.houseList = result2;
+        this.id = idChuNha;
+      });
     });
     this.componentsService.listCategoryHouse().subscribe(result => {
       this.categoryHouseList = result;

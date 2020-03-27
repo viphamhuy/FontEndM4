@@ -4,6 +4,7 @@ import {ComponentsService} from '../../components.service';
 import {AngularFireDatabase} from '@angular/fire/database';
 import * as firebase from 'firebase';
 import {Picture} from '../picture';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-add-house',
@@ -14,6 +15,8 @@ export class AddHouseComponent implements OnInit {
 
   categoryHouseList: any[];
   categoryRoomList: any[];
+  idHost: string;
+  hostList: any;
   formGroup = new FormGroup({
     tenNha: new FormControl(),
     diaChi: new FormControl(),
@@ -22,6 +25,7 @@ export class AddHouseComponent implements OnInit {
     moTaChung: new FormControl(),
     giaTienTheoDem: new FormControl(),
     trangThai: new FormControl(),
+    hostId: new FormControl(),
     categoryHouseId: new FormControl(),
     categoryRoomId: new FormControl()
   });
@@ -31,10 +35,19 @@ export class AddHouseComponent implements OnInit {
   isSuccess = true;
   isLoading = false;
 
-  constructor(private componentsService: ComponentsService, private db: AngularFireDatabase) {
+  constructor(private componentsService: ComponentsService, private db: AngularFireDatabase, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe( params => {
+      const idChuNha = params.get('id');
+      this.idHost = idChuNha;
+      console.log(this.idHost);
+      this.componentsService.findByIdHost(idChuNha).subscribe( result2 => {
+        this.hostList = result2;
+        this.formGroup.controls.hostId.setValue(this.hostList.idChuNha);
+      });
+    });
     this.componentsService.listCategoryHouse().subscribe(result => {
       this.categoryHouseList = result;
     });
@@ -52,10 +65,11 @@ export class AddHouseComponent implements OnInit {
     const moTaChung = this.formGroup.get('moTaChung').value;
     const giaTienTheoDem = this.formGroup.get('giaTienTheoDem').value;
     const trangThai = this.formGroup.get('trangThai').value;
+    const hostId = this.formGroup.get('hostId').value;
     const categoryHouseId = this.formGroup.get('categoryHouseId').value;
     const categoryRoomId = this.formGroup.get('categoryRoomId').value;
     this.componentsService.addHouse(tenNha, diaChi, soLuongPhongNgu, soLuongPhongTam,
-      moTaChung, giaTienTheoDem, trangThai, categoryHouseId, categoryRoomId, this.arrayPicture).subscribe(result => {
+      moTaChung, giaTienTheoDem, trangThai, hostId, categoryHouseId, categoryRoomId, this.arrayPicture).subscribe(result => {
       this.isShow = true;
       this.isSuccess = true;
       this.message = 'Thêm thành công!';

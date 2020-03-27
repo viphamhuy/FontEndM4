@@ -15,6 +15,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 export class EditHouseComponent implements OnInit {
 
   picture: Picture[];
+  listUser: any[];
   arrayPicture: Picture[] = [];
   categoryHouseList: any[];
   categoryRoomList: any[];
@@ -41,6 +42,9 @@ export class EditHouseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.componentsService.listUser().subscribe( result2 => {
+      this.listUser = result2;
+    });
     this.componentsService.listCategoryHouse().subscribe(result => {
       this.categoryHouseList = result;
     });

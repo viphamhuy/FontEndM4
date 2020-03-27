@@ -7,7 +7,7 @@
     <div class="menu-list">
 
       <ul id="menu-content" class="menu-content collapse out">
-        <a class="router-a" routerLink="/user">
+        <a class="router-a" routerLink="/user/{{idHost}}">
         <li>
           <i class="fa fa-dashboard fa-lg"></i> Dashboard
         </li>
@@ -24,10 +24,10 @@
           <i class="fa fa-list fa-lg"></i> Product  <span class="arrow"></span>
         </li>
         <ul class="sub-menu " id="new-1">
-          <li class="active">Product list</li>
-          <li>Add-product</li>
-          <li>Edit-product</li>
-          <li>Delete-product</li>
+          <li class="active" routerLink="/user/house/{{idHost}}">Product list</li>
+          <li routerLink="/user/add/{{idHost}}">Add-product</li>
+          <li routerLink="/user/house/{{idHost}}">Edit-product</li>
+          <li routerLink="/user/house/{{idHost}}">Delete-product</li>
         </ul>
         <li class="collapsed">
           <i class="fa fa-bars fa-lg"></i> Categories <span class="arrow"></span>

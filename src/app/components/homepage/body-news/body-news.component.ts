@@ -17,6 +17,7 @@ export class BodyNewsComponent implements OnInit {
   ngOnInit(): void {
     this.componentsService.listHouse().subscribe( result => {
       this.listHouse = result;
+      console.log(this.listHouse);
     });
     this.componentsService.listCategoryHouse().subscribe( result => {
       this.categoryHouseList = result;

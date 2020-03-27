@@ -35,7 +35,7 @@ export class ComponentsService {
   public addHouse(
     tenNha: string, diaChi: string, soLuongPhongNgu: string,
     soLuongPhongTam: string, moTaChung: string, giaTienTheoDem: number,
-    trangThai: string, categoryHouseId: number, categoryRoomId: number, listPicture: Picture[]): Observable<any> {
+    trangThai: string, hostId: number, categoryHouseId: number, categoryRoomId: number, listPicture: Picture[]): Observable<any> {
     const house = {
       tenNha,
       diaChi,
@@ -45,6 +45,9 @@ export class ComponentsService {
       giaTienTheoDem,
       trangThai,
       picture: listPicture,
+      host: {
+        idChuNha: hostId
+      },
       categoryHouse: {
         id: categoryHouseId
       },
@@ -96,7 +99,26 @@ export class ComponentsService {
   }
 
   public searchBetween(input: string, output: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
     return this.httpClient.get<any>('http://localhost:5000//api/findAllByGiaTienTheoDemBetweenAndTrangThai?dauDuoi=' + input + '&dauTren=' + output);
+  }
+  public listUser(): Observable<any> {
+    return this.httpClient.get('http://localhost:5000/api/hosts/');
+  }
+  public addUser(userName: string, password: string, hoTen: string, diaChi: string): Observable<any> {
+    const user = {
+      userName,
+      password,
+      hoTen,
+      diaChi
+    };
+    return this.httpClient.post('http://localhost:5000/api/hosts/', user);
+  }
+  public findByIdChuNha(id: string): Observable<any> {
+    return this.httpClient.get('http://localhost:5000/api/findAllByHost?host=' + id);
+  }
+  public findByIdHost(id: string): Observable<any> {
+    return this.httpClient.get('http://localhost:5000/api/hosts/' + id);
   }
 }
 
