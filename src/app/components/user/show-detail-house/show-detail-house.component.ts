@@ -12,9 +12,6 @@ export class ShowDetailHouseComponent implements OnInit {
 
   listHouse: any;
   id: number;
-  categoryHouseList: any[];
-  categoryRoomList: any[];
-  listUser: any[];
   formGroup = new FormGroup({
     hostId: new FormControl(),
     categoryHouseId: new FormControl(),
@@ -32,15 +29,6 @@ export class ShowDetailHouseComponent implements OnInit {
         this.formGroup.controls.categoryRoomId.setValue(this.listHouse.categoryRoom.id);
         this.id = Number(idSearch);
       });
-    });
-    this.componentsService.listUser().subscribe( result2 => {
-      this.listUser = result2;
-    });
-    this.componentsService.listCategoryHouse().subscribe( result => {
-      this.categoryHouseList = result;
-    });
-    this.componentsService.listCategoryRoom().subscribe( result1 => {
-      this.categoryRoomList = result1;
     });
   }
 

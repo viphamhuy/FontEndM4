@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Picture} from './user/picture';
+import {House} from './user/interface/house';
 
 @Injectable()
 export class ComponentsService {
@@ -119,6 +120,16 @@ export class ComponentsService {
   }
   public findByIdHost(id: string): Observable<any> {
     return this.httpClient.get('http://localhost:5000/api/hosts/' + id);
+  }
+  public editUser(userName: string, password: string, hoTen: string, diaChi: string, idChuNha: number): Observable<any> {
+    const user = {
+      userName,
+      password,
+      hoTen,
+      diaChi,
+      idChuNha
+    };
+    return this.httpClient.put<any>('http://localhost:5000/api/hosts/' + idChuNha, user);
   }
 }
 

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-md-3 register-left">
+    <a routerLink="/user/{{id}}">Quay về</a><br/>
+  </div>
+  <h1>Thông tin người dùng</h1>
+  <br>
+  <p>* Name:  {{listUser.hoTen}}</p>
+  <p>* Địa chỉ:  {{listUser.diaChi}}</p>
+  <p>* UserName:  {{listUser.userName}}</p>
+  <p>* PassWord:  {{listUser.password}}</p>
+  <button routerLink="/edit-user/1">Sửa thông tin</button>
+  <button routerLink="/login">Đăng xuất</button>
+</div>

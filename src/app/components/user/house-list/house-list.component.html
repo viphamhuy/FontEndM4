@@ -34,12 +34,16 @@
                   <button class="btn btn-success btn-xs" routerLink='/user/house-details/{{house.idNha}}' (click)="findId(house.id)"> <i class="fa fa-eye"></i> Show details</button>
                   <button class=" btn btn-info btn-xs" routerLink='/user/edit/{{house.idNha}}' (click)="findId(house.id)"> <i class="fa fa-edit"></i>Edit</button>
                   <button class="btn btn-danger btn-xs" (click)="delete(house.idNha)"> <i class="fa fa-times"></i> Delete</button>
-
                 </td>
 
               </tr>
 
               </tbody>
+              <div *ngIf="isShow"
+                   class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+                   role="alert">
+                {{message}}
+              </div>
             </table>
 
           </div>

@@ -22,13 +22,15 @@ import { HomeListComponent } from './user/home-list/home-list.component';
 import { ShowDetailHouseComponent } from './user/show-detail-house/show-detail-house.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { ShowDetailUserComponent } from './user/show-detail-user/show-detail-user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 
 
 @NgModule({
   declarations: [
     // tslint:disable-next-line:max-line-length
-    ComponentsComponent, BodyNewsComponent, HomepageComponent, FooterComponent, HotNewsComponent, MenuBarComponent, SideBarComponent, UserComponent, HouseListComponent, AddHouseComponent, EditHouseComponent, ShowDetailsComponent, SideBarUserComponent, HomeListComponent, ShowDetailHouseComponent, LoginComponent, SignUpComponent],
+    ComponentsComponent, BodyNewsComponent, HomepageComponent, FooterComponent, HotNewsComponent, MenuBarComponent, SideBarComponent, UserComponent, HouseListComponent, AddHouseComponent, EditHouseComponent, ShowDetailsComponent, SideBarUserComponent, HomeListComponent, ShowDetailHouseComponent, LoginComponent, SignUpComponent, ShowDetailUserComponent, EditUserComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,
@@ -37,7 +39,12 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
     HttpClientModule
   ],
   exports: [
-    HomepageComponent
+    HomepageComponent,
+    MenuBarComponent,
+    HotNewsComponent,
+    BodyNewsComponent,
+    SideBarComponent,
+    FooterComponent
   ],
   providers: [ComponentsService]
 })

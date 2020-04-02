@@ -10,6 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class HomeListComponent implements OnInit {
 
   id: string;
+  listUser: any[];
   // tslint:disable-next-line:max-line-length
   urlTiDa = 'https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/64359869_2394503243947594_7770096928003457024_n.jpg?_nc_cat=102&_nc_sid=7aed08&_nc_ohc=uP1KHQU7Y6gAX-hCUDS&_nc_ht=scontent-sin6-2.xx&oh=d3e0cce99e40e4641f9f0b7c8e69c0a4&oe=5EA1801D';
   // tslint:disable-next-line:max-line-length

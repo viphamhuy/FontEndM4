@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-side-bar-user',
@@ -13,9 +14,9 @@ export class SideBarUserComponent implements OnInit {
   constructor(private componentsService: ComponentsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const idChuNha = params.get('id');
-      this.idHost = idChuNha;
+    this.route.paramMap.subscribe( params => {
+      const idSearch = params.get('id');
+      this.idHost = idSearch;
     });
   }
 

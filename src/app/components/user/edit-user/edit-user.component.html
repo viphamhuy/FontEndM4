@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <div id="content">
+    <div class="container-fruid register">
+      <div class="row">
+
+        <div class="col-md-3 register-left">
+          <a routerLink="/show-detail-user/{{hostList.idChuNha}}">Quay về</a><br/>
+        </div>
+
+        <div class="col-md-9 register-right">
+
+          <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <div *ngIf="isShow"
+                   class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+                   role="alert">
+                {{message}}
+              </div>
+              <h3 class="register-heading">Thay đổi thông tin</h3>
+
+              <form [formGroup]="formGroup" (ngSubmit)="edit()">
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input formControlName="userName" placeholder="User Name *" type="text" class="form-control" id="tenNha" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Mật khẩu *" formControlName="passWord" type="text" class="form-control" id="diaChi">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Họ tên *" formControlName="hoTen" type="text" class="form-control" id="soLuongPhongNgu">
+                    </div>
+                    <div class="form-group">
+                      <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control" id="soLuongPhongTam">
+                    </div>
+                  </div>
+                  <button type="submit" class="btnRegister">
+                    Rengster
+                    <div *ngIf="isLoading" class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
